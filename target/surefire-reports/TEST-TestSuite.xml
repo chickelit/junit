@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="TestSuite" time="0.035" tests="3" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="TestSuite" time="0.038" tests="3" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="17"/>
     <property name="sun.cpu.isalist" value="amd64"/>
     <property name="sun.jnu.encoding" value="Cp1252"/>
-    <property name="java.class.path" value="C:\Users\ansel\Desktop\IFPE\TS\demo\target\test-classes;C:\Users\ansel\Desktop\IFPE\TS\demo\target\classes;C:\Users\ansel\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.9.1\junit-jupiter-api-5.9.1.jar;C:\Users\ansel\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar;C:\Users\ansel\.m2\repository\org\junit\platform\junit-platform-commons\1.9.1\junit-platform-commons-1.9.1.jar;C:\Users\ansel\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\ansel\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.9.1\junit-jupiter-engine-5.9.1.jar;C:\Users\ansel\.m2\repository\org\junit\platform\junit-platform-engine\1.9.1\junit-platform-engine-1.9.1.jar;"/>
+    <property name="java.class.path" value="C:\Users\ansel\Desktop\IFPE\TS\demo\target\test-classes;C:\Users\ansel\Desktop\IFPE\TS\demo\target\classes;C:\Users\ansel\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.9.1\junit-jupiter-api-5.9.1.jar;C:\Users\ansel\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar;C:\Users\ansel\.m2\repository\org\junit\platform\junit-platform-commons\1.9.1\junit-platform-commons-1.9.1.jar;C:\Users\ansel\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;"/>
     <property name="java.vm.vendor" value="Microsoft"/>
     <property name="sun.arch.data.model" value="64"/>
     <property name="user.variant" value=""/>
@@ -15,9 +15,9 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="BR"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Microsoft\jdk-17.0.11.9-hotspot\bin"/>
-    <property name="sun.java.command" value="C:\Users\ansel\AppData\Local\Temp\surefire9960595918591180168\surefirebooter-20250512111959763_3.jar C:\Users\ansel\AppData\Local\Temp\surefire9960595918591180168 2025-05-12T11-19-59_624-jvmRun1 surefire-20250512111959763_1tmp surefire_0-20250512111959763_2tmp"/>
+    <property name="sun.java.command" value="C:\Users\ansel\AppData\Local\Temp\surefire12017997313050471052\surefirebooter-20250513194127177_3.jar C:\Users\ansel\AppData\Local\Temp\surefire12017997313050471052 2025-05-13T19-41-27_013-jvmRun1 surefire-20250513194127177_1tmp surefire_0-20250513194127177_2tmp"/>
     <property name="jdk.debug" value="release"/>
-    <property name="surefire.test.class.path" value="C:\Users\ansel\Desktop\IFPE\TS\demo\target\test-classes;C:\Users\ansel\Desktop\IFPE\TS\demo\target\classes;C:\Users\ansel\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.9.1\junit-jupiter-api-5.9.1.jar;C:\Users\ansel\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar;C:\Users\ansel\.m2\repository\org\junit\platform\junit-platform-commons\1.9.1\junit-platform-commons-1.9.1.jar;C:\Users\ansel\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\ansel\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.9.1\junit-jupiter-engine-5.9.1.jar;C:\Users\ansel\.m2\repository\org\junit\platform\junit-platform-engine\1.9.1\junit-platform-engine-1.9.1.jar;"/>
+    <property name="surefire.test.class.path" value="C:\Users\ansel\Desktop\IFPE\TS\demo\target\test-classes;C:\Users\ansel\Desktop\IFPE\TS\demo\target\classes;C:\Users\ansel\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.9.1\junit-jupiter-api-5.9.1.jar;C:\Users\ansel\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar;C:\Users\ansel\.m2\repository\org\junit\platform\junit-platform-commons\1.9.1\junit-platform-commons-1.9.1.jar;C:\Users\ansel\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
     <property name="user.home" value="C:\Users\ansel"/>
     <property name="user.language" value="pt"/>
@@ -30,7 +30,7 @@
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="surefire.real.class.path" value="C:\Users\ansel\AppData\Local\Temp\surefire9960595918591180168\surefirebooter-20250512111959763_3.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\ansel\AppData\Local\Temp\surefire12017997313050471052\surefirebooter-20250513194127177_3.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="17.0.11+9-LTS"/>
@@ -57,7 +57,13 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="61.0"/>
   </properties>
-  <testcase name="test__1" classname="TestSuite" time="0.017"/>
-  <testcase name="test__2" classname="TestSuite" time="0.001"/>
+  <testcase name="test__1" classname="TestSuite" time="0.012">
+    <system-out><![CDATA[Default beforeAll
+Default beforeEach
+Default afterAll
+Default afterEach
+]]></system-out>
+  </testcase>
+  <testcase name="test__2" classname="TestSuite" time="0.0"/>
   <testcase name="test__3" classname="TestSuite" time="0.001"/>
 </testsuite>

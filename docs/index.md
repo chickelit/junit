@@ -8,7 +8,7 @@ Ir para seção
   - [@Disabled](#disabled)
   - [@Timeout](#timeout)
   - [@RepeatedTest](#repeatedtest)
-  - [@ParameterizedTest](#parameterizedtest)
+- [Test Instance Lifecycle](#test-instance-lifecycle)
 
 # Introdução
 
@@ -16,7 +16,7 @@ Ir para seção
 
 - VS Code
 - Extension Pack for Java (extensão do VS Code)
-- Maven for Java (extensão do VS Code já inclusa no Extension Pack for Java)
+- [Maven](https://maven.apache.org/install.html). **SIGA AS INSTRUÇÕES CUIDADOSAMENTE**
 
 ## Criando projeto com Maven
 
@@ -24,10 +24,10 @@ Ir para seção
 1. Na Command Palette, escreva **> Java: Create Java Project** e pressione <kbd>Enter</kbd>
 1. Selecione: **Maven** e pressione <kbd>Enter</kbd>
 1. Selecione: **No Archetype** e pressione <kbd>Enter</kbd>
-1. Personalize o **id** do projeto e pressione <kbd>Enter</kbd>
-1. Personalize o **artifact** do seu projeto e pressione <kbd>Enter</kbd>
-1. A extensão Java do VS Code gerará uma estrutura como essa:
+1. Personalize o **id** do projeto e pressione <kbd>Enter</kbd> ou apenas pressione <kbd>Enter</kbd> sem modificar o valor
+1. Personalize o **artifact** do projeto e pressione <kbd>Enter</kbd> ou apenas pressione <kbd>Enter</kbd> sem modificar o valor
 
+Esta é a estrutura que o Java cria. Geralmente, todos os projetos tem uma estrutura similar. Dentro da pasta **main**, temos o código do nosso programa. E dentro da pasta **test/java**, teremos todos os nossos arquivos Java para testes.
 ```plain
 ├───src
 │   ├───main
@@ -46,8 +46,17 @@ Ir para seção
 
 ## Editando o pom.xml
 
-Para instalar o JUnit5, abra o arquivo **pom.xml** e adicione à tag **dependencies** a dependência do JUnit5 usando a tag **dependency**. O arquivo deve se parecer com isso ao final:
+Para instalar o JUnit5, abra o arquivo **pom.xml** e adicione à tag **dependencies** as dependências do JUnit5 Jupiter usando a tag **dependency**. 
+```xml
+<dependency>
+	<groupId>org.junit.jupiter</groupId>
+	<artifactId>junit-jupiter-api</artifactId>
+	<version>5.9.1</version>
+	<scope>test</scope>
+</dependency>
+```
 
+O arquivo deve se parecer com isso após a adição:
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <project
@@ -68,14 +77,13 @@ Para instalar o JUnit5, abra o arquivo **pom.xml** e adicione à tag **dependenc
 
   <dependencies>
     <dependency>
-      <groupId>org.junit.vintage</groupId>
-      <artifactId>junit-vintage-engine</artifactId>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-api</artifactId>
       <version>5.9.1</version>
       <scope>test</scope>
     </dependency>
   </dependencies>
 </project>
-
 ```
 
 ## Instalando as dependências
@@ -285,17 +293,17 @@ public class TestSuite {
 
 # Annotations
 
-| Annotation    | Descrição                                                                                                                                            |
-| ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
-| @Test         | Marca um método de uma classe como um método de teste                                                                                                |
-| @BeforeAll    | Marca um método de uma classe para ser executado antes de todos os métodos de testes de uma classe                                                   |
-| @AfterAll     | Marca um método de uma classe para ser executado depois de todos os métodos de testes de uma classe                                                  |
-| @BeforeEach   | Marca um método de uma classe para ser executado antes de cada método de teste de uma classe                                                         |
-| @AfterEach    | Marca um método de uma classe para ser executado depois de cada método de teste de uma classe                                                        |
-| @DisplayName  | Define um nome ou título para uma classe ou método de teste                                                                                          |
-| @Disabled     | Marca uma classe ou método de teste como desabilitada para que não seja executado/a durante os testes                                                |
-| @Timeout      | Define um tempo limite que um método de testes ou um métodos marcados com BeforeAll, AfterAll, BeforeEach e AfterEach pode tomar para ser completado |
-| @RepeatedTest | Define que um teste será executado repetidamente por uma quantidade customizável de vezes                                                            |
+| Annotation         | Descrição                                                                                                                                            |
+| ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| @Test              | Marca um método de uma classe como um método de teste                                                                                                |
+| @BeforeAll         | Marca um método de uma classe para ser executado antes de todos os métodos de testes de uma classe                                                   |
+| @AfterAll          | Marca um método de uma classe para ser executado depois de todos os métodos de testes de uma classe                                                  |
+| @BeforeEach        | Marca um método de uma classe para ser executado antes de cada método de teste de uma classe                                                         |
+| @AfterEach         | Marca um método de uma classe para ser executado depois de cada método de teste de uma classe                                                        |
+| @DisplayName       | Define um nome ou título para uma classe ou método de teste                                                                                          |
+| @Disabled          | Marca uma classe ou método de teste como desabilitada para que não seja executado/a durante os testes                                                |
+| @Timeout           | Define um tempo limite que um método de testes ou um métodos marcados com BeforeAll, AfterAll, BeforeEach e AfterEach pode tomar para ser completado |
+| @RepeatedTest      | Define que um teste será executado repetidamente por uma quantidade customizável de vezes                                                            |
 | @ParameterizedTest | Define que um teste será executado repetidamente por uma quantidade customizável de vezes                                                            |
 
 ## @DisplayName
@@ -405,6 +413,7 @@ Nesta sessão de testes, o segundo teste falhou. Como esperávamos, o teste falh
 ![Resultado da demonstração de uso do @Timeout](./images/annotations.@Timeout.image-1.png)
 
 O @Timeout também pode ser usado como abaixo. Isso nos permite usar outras unidades de tempo para timeout. Neste caso, estamos delimitando um timeout de 5 milissegundos para o método de teste ser executado.
+
 ```java
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -432,7 +441,9 @@ public class TestSuite {
 ```
 
 ## @RepeatedTest
+
 Agora, definimos que o primeiro método de teste será executado três vezes.
+
 ```java
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -461,7 +472,8 @@ O resultado abaixo demonstra que de fato, o primeiro teste foi executado três v
 
 ![Resultado da demonstração de uso do @Timeout](./images/annotations.@RepeatedTest.image-1.png)
 
-Também é permitido usar esta Annotation como abaixo. Dessa forma, definimos uma forma de exibir os nomes de cada repetição do teste. Temos as variáveis **displayName** (nome do método de teste caso ele tenha), **currentRepitition** (repetição atual) e **totalRepititions** (total de repetições) para customizar o nome. 
+Também é permitido usar esta Annotation como abaixo. Dessa forma, definimos uma forma de exibir os nomes de cada repetição do teste. Temos as variáveis **displayName** (nome do método de teste caso ele tenha), **currentRepitition** (repetição atual) e **totalRepititions** (total de repetições) para customizar o nome.
+
 ```java
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -491,5 +503,61 @@ Como esperado, os nomes das repetições estão como customizamos.
 
 ![Resultado da demonstração de uso do @Timeout](./images/annotations.@RepeatedTest.image-2.png)
 
+# Test Instance Lifecycle
+No mundo dos testes, é muito comum termos lifecycle methods que precisam ser exatamente iguais em várias classes de testes. Felizmente, o JUnit5 tem uma solução prática para isso. Basta criarmos uma interface.
 
-## @ParameterizedTest
+Abaixo, criamos a interface **TestLifecycle**. Esta interface define os métodos marcados com BeforeAll, AfterAll, BeforeEach e AfterEach para exemplificar. Além de definir a implementação padrão dos métodos.
+
+O JUnit5 por padrão cria uma nova instância da classe de testes toda vez que vai executar um método de testes dela. Podemos modificar esse comportamento fazendo com que o JUnit5 crie uma instância da classe para executar todos os métodos de teste dela. Para isso, usamos a Annotation **@TestInstance**. Fazer isso nor permite declarar os métodos com BeforeAll e AfterAll sem que eles precisem ser métodos estáticos.
+```java
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.TestInstance;
+import org.junit.jupiter.api.TestInstance.Lifecycle;
+
+@TestInstance(Lifecycle.PER_CLASS)
+public interface TestLifecycle {
+	@BeforeAll
+	default void beforeAll() {
+		System.out.println("Default beforeAll");
+	}
+
+	@BeforeAll
+	default void afterAll() {
+		System.out.println("Default afterAll");
+	}
+
+	@BeforeAll
+	default void beforeEach() {
+		System.out.println("Default beforeEach");
+	}
+
+	@BeforeAll
+	default void afterEach() {
+		System.out.println("Default afterEach");
+	}
+}
+```
+
+Para usarmos estas implementações padrão que criamos, logicamente basta implementar a classe criada.
+```java
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import org.junit.jupiter.api.*;
+
+public class TestSuite implements TestLifecycle {
+	@Test
+	public void test__1() {
+		assertEquals(1, 1);
+	}
+
+	@Test
+	public void test__2() {
+		assertEquals(1, 1);
+	}
+
+	@Test
+	public void test__3() {
+		assertEquals(1, 1);
+	}
+}
+```
